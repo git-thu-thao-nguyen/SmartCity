@@ -1,0 +1,125 @@
+package com.example.smartcity;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class LoginActivity extends AppCompatActivity {
+
+    private EditText editTextPseudo, editTextMDP;
+    private Button buttonLogin;
+    private Button linkRegist;
+    private ProgressBar loading;
+    private static String URL_LOGIN ="http://192.168.1.17/HTML/android_register_login/login.php";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        loading = findViewById(R.id.loading);
+        editTextPseudo = findViewById(R.id.pseudo);
+        editTextMDP = findViewById(R.id.MDP);
+        buttonLogin = findViewById(R.id.login);
+        linkRegist = (Button)findViewById(R.id.link_regist);
+
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String pseudo1 = editTextPseudo.getText().toString().trim();
+                String mdp1 = editTextMDP.getText().toString().trim();
+
+                if(pseudo1.isEmpty() || mdp1.isEmpty()){
+                    Login(pseudo1,mdp1);
+                } else {
+                    editTextPseudo.setError("Please insert Pseudo");
+                    editTextMDP.setError("Please insert Password");
+                }
+            }
+        });
+
+        linkRegist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentRegist = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intentRegist);
+            }
+        });
+    }
+
+    private void Login(final String pseudo, final String mdp) {
+
+        loading.setVisibility(View.VISIBLE);
+        buttonLogin.setVisibility(View.GONE);
+
+        StringRequest stringRequest= new StringRequest(Request.Method.POST, URL_LOGIN,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("success");
+                            JSONArray jsonArray = jsonObject.getJSONArray("login");
+
+                            if(success.equals("1")){
+
+                                for(int i=0; i< jsonArray.length(); i++) {
+                                    JSONObject object = jsonArray.getJSONObject(i);
+                                    String p = object.getString("pseudo").trim();
+                                    Toast.makeText(LoginActivity.this,"Success Login, "+p,Toast.LENGTH_SHORT).show();
+                                    loading.setVisibility(View.GONE);
+                                }
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            loading.setVisibility(View.GONE);
+                            buttonLogin.setVisibility(View.VISIBLE);
+                            Toast.makeText(LoginActivity.this,"Error Login 1!" + e.toString(),Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        loading.setVisibility(View.GONE);
+                        buttonLogin.setVisibility(View.VISIBLE);
+                        Toast.makeText(LoginActivity.this,"Error Login 2!" + error.toString(),Toast.LENGTH_SHORT).show();
+
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("pseudo", pseudo);
+                params.put("mdp",mdp);
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+}
