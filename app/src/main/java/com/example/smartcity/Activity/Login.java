@@ -1,4 +1,4 @@
-package com.example.smartcity;
+package com.example.smartcity.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,11 +12,12 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.smartcity.R;
+import com.example.smartcity.RequestHandler;
+import com.example.smartcity.Urls;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,13 +26,13 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     private EditText pseudo, mdp;
     private Button buttonLogin;
     private Button linkRegist;
     private ProgressBar loading;
-    private static String URL_LOGIN ="http://192.168.1.17/HTML/android_register_login/login.php";
+    private static String URL_LOGIN = Urls.URL_LOGIN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         linkRegist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentRegist = new Intent(LoginActivity.this, RegisterActivity.class);
+                Intent intentRegist = new Intent(Login.this, Register.class);
                 startActivity(intentRegist);
             }
         });
@@ -90,7 +91,10 @@ public class LoginActivity extends AppCompatActivity {
 
                                     JSONObject object = jsonArray.getJSONObject(i);
                                     String p = object.getString("pseudo").trim();
-                                    Toast.makeText(LoginActivity.this,"Success Login, "+p,Toast.LENGTH_SHORT).show();
+
+                                    Intent intent = new Intent(Login.this,Profil.class);
+                                    intent.putExtra("pseudo",p);
+                                    startActivity(intent);
 
                                     loading.setVisibility(View.GONE);
                                 }
@@ -99,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                             e.printStackTrace();
                             loading.setVisibility(View.GONE);
                             buttonLogin.setVisibility(View.VISIBLE);
-                            Toast.makeText(LoginActivity.this,"Error Login 1!" + e.toString(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this,"Error Login 1!" + e.toString(),Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
@@ -108,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         loading.setVisibility(View.GONE);
                         buttonLogin.setVisibility(View.VISIBLE);
-                        Toast.makeText(LoginActivity.this,"Error Login 2!" + error.toString(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this,"Error Login 2!" + error.toString(),Toast.LENGTH_SHORT).show();
 
                     }
                 })
@@ -122,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+
     }
 }

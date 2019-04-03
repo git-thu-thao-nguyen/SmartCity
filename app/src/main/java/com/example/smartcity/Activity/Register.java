@@ -1,5 +1,6 @@
-package com.example.smartcity;
+package com.example.smartcity.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,25 +12,25 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.smartcity.R;
+import com.example.smartcity.RequestHandler;
+import com.example.smartcity.Urls;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegisterActivity extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
     private EditText editTextPseudo, editTextEmail, editTextAge, editTextMDP;
-    private Button buttonRegist;
+    private Button buttonRegist, buttonSignIn;
     private ProgressBar loading;
-    private static String URL_REGIST = "http://192.168.1.17/HTML/android_register_login/register.php";
+    private static String URL_REGIST = Urls.URL_REGIST;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +44,21 @@ public class RegisterActivity extends AppCompatActivity {
         editTextAge = findViewById(R.id.age);
         editTextMDP = findViewById(R.id.MDP);
         buttonRegist = findViewById(R.id.regist);
+        buttonSignIn = findViewById(R.id.signin);
 
         buttonRegist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Regist();
+            }
+        });
+
+        buttonSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent Intentconnexion = new Intent(Register.this, Login.class);
+                startActivity(Intentconnexion);
             }
         });
     }
@@ -70,12 +81,12 @@ public class RegisterActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             String success = jsonObject.getString("success");
                             if(success.equals("1")){
-                                Toast.makeText(RegisterActivity.this,"Register Success!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Register.this,"Register Success!", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e){
                             e.printStackTrace();
-                            Toast.makeText(RegisterActivity.this,"Register Error 1! " + e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this,"Register Error 1! " + e.toString(), Toast.LENGTH_SHORT).show();
                             loading.setVisibility(View.GONE);
                             buttonRegist.setVisibility(View.VISIBLE);
                         }
@@ -84,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(RegisterActivity.this,"Register Error 2! " + error.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Register.this,"Register Error 2! " + error.toString(), Toast.LENGTH_SHORT).show();
                         loading.setVisibility(View.GONE);
                         buttonRegist.setVisibility(View.VISIBLE);
                     }
@@ -101,7 +112,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }
 }
