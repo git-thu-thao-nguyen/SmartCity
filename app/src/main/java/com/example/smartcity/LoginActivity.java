@@ -3,11 +3,11 @@ package com.example.smartcity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText editTextPseudo, editTextMDP;
+    private EditText pseudo, mdp;
     private Button buttonLogin;
     private Button linkRegist;
     private ProgressBar loading;
@@ -38,23 +38,24 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        loading = findViewById(R.id.loading);
-        editTextPseudo = findViewById(R.id.pseudo);
-        editTextMDP = findViewById(R.id.MDP);
+        loading = findViewById(R.id.login_loading);
+        pseudo = findViewById(R.id.login_pseudo);
+        mdp = findViewById(R.id.login_MDP);
         buttonLogin = findViewById(R.id.login);
         linkRegist = (Button)findViewById(R.id.link_regist);
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String pseudo1 = editTextPseudo.getText().toString().trim();
-                String mdp1 = editTextMDP.getText().toString().trim();
-
-                if(pseudo1.isEmpty() || mdp1.isEmpty()){
+                String pseudo1 = pseudo.getText().toString().trim();
+                String mdp1 = mdp.getText().toString().trim();
+                Log.d("LoginPseudo",pseudo1);
+                Log.d("LoginMdp",mdp1);
+                if(!pseudo1.isEmpty() || !mdp1.isEmpty()){
                     Login(pseudo1,mdp1);
                 } else {
-                    editTextPseudo.setError("Please insert Pseudo");
-                    editTextMDP.setError("Please insert Password");
+                    pseudo.setError("Please insert Pseudo");
+                    mdp.setError("Please insert Password");
                 }
             }
         });
@@ -77,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        Log.d("LoginResponse", "Login Response: " + response.toString());
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String success = jsonObject.getString("success");
@@ -85,12 +87,13 @@ public class LoginActivity extends AppCompatActivity {
                             if(success.equals("1")){
 
                                 for(int i=0; i< jsonArray.length(); i++) {
+
                                     JSONObject object = jsonArray.getJSONObject(i);
                                     String p = object.getString("pseudo").trim();
                                     Toast.makeText(LoginActivity.this,"Success Login, "+p,Toast.LENGTH_SHORT).show();
+
                                     loading.setVisibility(View.GONE);
                                 }
-
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

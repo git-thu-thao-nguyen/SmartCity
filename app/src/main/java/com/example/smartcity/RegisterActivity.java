@@ -60,13 +60,12 @@ public class RegisterActivity extends AppCompatActivity {
         final String email = this.editTextEmail.getText().toString().trim();
         final String age = this.editTextAge.getText().toString().trim();
         final String mdp = this.editTextMDP.getText().toString().trim();
-        Log.d("Hihi",pseudo);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGIST,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("haha", "Register Response: " + response.toString());
+                        Log.d("RegisterResponse", "Register Response: " + response.toString());
                         try{
                             JSONObject jsonObject = new JSONObject(response);
                             String success = jsonObject.getString("success");

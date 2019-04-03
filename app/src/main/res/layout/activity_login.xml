@@ -16,7 +16,7 @@
         android:src="@mipmap/login" />
 
     <EditText
-        android:id="@+id/pseudo"
+        android:id="@+id/login_pseudo"
         android:hint="Pseudo"
         android:inputType="textPersonName"
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
         android:textColorHighlight="@color/white"/>
 
     <EditText
-        android:id="@+id/MDP"
+        android:id="@+id/login_MDP"
         android:hint="Password"
         android:inputType="textPassword"
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
         android:textColorHighlight="@color/white"/>
 
     <ProgressBar
-        android:id="@+id/loading"
+        android:id="@+id/login_loading"
         android:layout_marginTop="30dp"
         android:visibility="gone"
         android:layout_width="match_parent"
