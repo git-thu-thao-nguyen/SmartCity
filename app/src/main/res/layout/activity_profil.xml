@@ -14,7 +14,7 @@
         android:paddingBottom="20dp">
 
         <RelativeLayout
-            android:id="@+id/ImageUtilisateur"
+            android:id="@+id/ImageUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -34,10 +34,10 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/TextViewNomPrenom"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ImageUtilisateur"
+            android:layout_below="@+id/ImageUser"
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif-light"
             android:text="Dwayne Johnson"
@@ -71,7 +71,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/TitrePseudo"
+                    android:id="@+id/pseudoTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pseudo :"
@@ -80,7 +80,7 @@
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/TextViewPseudo"
+                    android:id="@+id/pseudo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -108,7 +108,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/TitreAge"
+                    android:id="@+id/ageTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Age :"
@@ -117,11 +117,11 @@
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/TextViewAge"
+                    android:id="@+id/age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="18 ans"
+                    android:text="30"
                     android:textColor="@color/white"
                     android:textSize="25sp" />
 
@@ -151,7 +151,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/TitreVille"
+                    android:id="@+id/cityTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -160,7 +160,7 @@
                     android:textSize="19sp" />
 
                 <TextView
-                    android:id="@+id/TextViewVille"
+                    android:id="@+id/city"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -187,7 +187,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/TitreEmail"
+                    android:id="@+id/emailTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
@@ -196,7 +196,7 @@
                     android:textSize="19sp" />
 
                 <TextView
-                    android:id="@+id/TextViewEmail"
+                    android:id="@+id/email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"

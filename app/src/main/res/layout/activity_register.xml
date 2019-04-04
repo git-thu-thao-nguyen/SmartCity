@@ -23,6 +23,32 @@
         android:textColor="@color/colorText"
         android:textColorHint="@color/colorText" />
 
+    <EditText
+        android:id="@+id/firstname"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:background="@drawable/shapeemail"
+        android:drawablePadding="10dp"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText" />
+
+    <EditText
+        android:id="@+id/lastname"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:background="@drawable/shapeemail"
+        android:drawablePadding="10dp"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText" />
+
 
     <EditText
         android:id="@+id/email"
@@ -41,6 +67,19 @@
         android:id="@+id/age"
         android:hint="Age"
         android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:background="@drawable/shapeemail"
+        android:drawablePadding="10dp"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText" />
+
+    <EditText
+        android:id="@+id/city"
+        android:hint="City"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

@@ -5,11 +5,16 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
-/*
+/**
  *
+ * Volley Singleton pattern
+ *
+ * <p>
  * Ex, i call Volley.newRequestQueue(context) n times => n RequestQueue will create.
  * But, i only need to use 1 RequestQueue for all apps (Activity, Fragment, Service…).
- * So, here i use Singleton Pattern for design class RequestHandler that manages RequestQueue :
+ * So, here i use Singleton Pattern for design class RequestHandler that manages RequestQueue
+ * </p>
+ *
  *
  */
 
