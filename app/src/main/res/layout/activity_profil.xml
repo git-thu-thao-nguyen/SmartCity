@@ -132,17 +132,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/linearLayout1">
+        android:layout_below="@id/linearLayout1"
+        android:layout_marginTop="-1dp">
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_centerInParent="true"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp">
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
@@ -205,6 +206,7 @@
                     android:textSize="18sp" />
 
                 <View
+                    android:id="@+id/view"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="15dp"
@@ -215,6 +217,18 @@
 
             </LinearLayout>
         </LinearLayout>
+
+        <Button
+            android:id="@+id/signout"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shapesignup"
+            android:textColor="@color/white"
+            android:text="Sign out" />
     </RelativeLayout>
 
 

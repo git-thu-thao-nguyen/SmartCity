@@ -58,6 +58,7 @@
         android:layout_height="wrap_content"
         android:text="Log In"
         android:shadowColor="@android:color/transparent"
+        android:textColor="@color/colorPrimary"
         android:padding="15dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"

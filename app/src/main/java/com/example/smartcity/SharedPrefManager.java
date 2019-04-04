@@ -1,7 +1,12 @@
 package com.example.smartcity;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+
+import com.example.smartcity.Activity.Login;
+import com.example.smartcity.Activity.Profil;
 
 /**
  *
@@ -23,6 +28,7 @@ public class SharedPrefManager {
     private static final String keyCity = "user_City";
 
     private SharedPrefManager(Context context) {
+
         mCtx = context;
     }
 
@@ -54,10 +60,11 @@ public class SharedPrefManager {
     }
 
 
-    public boolean login(){
+    public boolean isLoggin(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
         return (sharedPreferences.getString(keyPseudo, null) != null);
     }
+
 
 
     public boolean logout(){
