@@ -119,24 +119,10 @@
 
 
     <Button
-        android:id="@+id/regist"
+        android:id="@+id/edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"
-        android:shadowColor="@android:color/transparent"
-        android:padding="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/shapesignup"
-        android:textColor="@color/white"/>
-
-    <Button
-        android:id="@+id/signin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sign in"
+        android:text="Save Edit"
         android:shadowColor="@android:color/transparent"
         android:padding="10dp"
         android:layout_marginRight="10dp"
@@ -145,6 +131,20 @@
         android:layout_marginTop="0dp"
         android:background="@drawable/shapelogin"
         android:textColor="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/cancel_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:shadowColor="@android:color/transparent"
+        android:padding="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/shapesignup"
+        android:textColor="@color/white"/>
 
 
 

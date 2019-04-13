@@ -94,6 +94,8 @@ public class Login extends AppCompatActivity {
                                 for(int i=0; i< jsonArray.length(); i++) {
 
                                     JSONObject object = jsonArray.getJSONObject(i);
+
+                                    int id = object.getInt("id");
                                     String pseudo = object.getString("pseudo").trim();
                                     String lastname = object.getString("lastname").trim();
                                     String firstname = object.getString("firstname").trim();
@@ -104,9 +106,9 @@ public class Login extends AppCompatActivity {
                                     Log.d("DataUser", pseudo + "," + lastname + "," + firstname + "," + email + "," + age + "," + city);
 
 
-                                    SharedPrefManager.getInstance(getApplicationContext()).dataUser(pseudo,firstname,lastname,email,age,city);
+                                    SharedPrefManager.getInstance(getApplicationContext()).set_DataUser(id,pseudo,firstname,lastname,email,age,city);
 
-                                    Intent intent = new Intent(Login.this,Profil.class);
+                                    Intent intent = new Intent(Login.this,MainActivity.class);
                                     //intent.putExtra("pseudo",p);
                                     startActivity(intent);
 

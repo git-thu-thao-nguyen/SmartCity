@@ -20,12 +20,14 @@ public class SharedPrefManager {
     private static Context mCtx;
 
     private static final String dataName = "my_data";
+    private static final String keyId = "user_Id";
     private static final String keyPseudo = "user_Pseudo";
     private static final String keyFirstName = "user_FirstName";
     private static final String keyLastName = "user_LastName";
     private static final String keyEmail = "user_Email";
     private static final String keyAge = "user_Age";
     private static final String keyCity = "user_City";
+    private static final String keyMDP = "user_MDP";
 
     private SharedPrefManager(Context context) {
 
@@ -43,11 +45,12 @@ public class SharedPrefManager {
      * UTILISATEUR
      */
 
-    public boolean dataUser (String pseudo, String firstname, String lastname, String email, int age, String city) {
+    public boolean set_DataUser (int id, String pseudo, String firstname, String lastname, String email, int age, String city) {
 
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName,Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
+        editor.putInt(keyId,id);
         editor.putString(keyPseudo,pseudo);
         editor.putString(keyFirstName,firstname);
         editor.putString(keyLastName,lastname);
@@ -66,7 +69,6 @@ public class SharedPrefManager {
     }
 
 
-
     public boolean logout(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -75,6 +77,11 @@ public class SharedPrefManager {
         return true;
     }
 
+
+    public int getUserId(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt(keyId, 0);
+    }
 
     public String getUserPseudo(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
@@ -105,5 +112,6 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
         return sharedPreferences.getString(keyCity, null);
     }
+
 
 }

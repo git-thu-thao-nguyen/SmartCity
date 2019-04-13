@@ -133,7 +133,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/linearLayout1"
-        android:layout_marginTop="-1dp">
+        android:layout_marginTop="-149dp">
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -219,16 +219,29 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/signout"
-            android:layout_below="@+id/linearLayout2"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp"
+            android:id="@+id/edit_profil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:text="Edit Profil"
+            android:background="@drawable/shapelogin"
+            android:textColor="@color/colorPrimary" />
+
+        <Button
+            android:id="@+id/signout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_profil"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="30dp"
             android:background="@drawable/shapesignup"
-            android:textColor="@color/white"
-            android:text="Sign out" />
+            android:text="Sign out"
+            android:textColor="@color/white" />
+
     </RelativeLayout>
 
 

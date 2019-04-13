@@ -87,6 +87,7 @@ public class Register extends AppCompatActivity {
     }
 
     private void Regist(){
+
         loading.setVisibility(View.VISIBLE);
         buttonRegist.setVisibility(View.GONE);
 
@@ -102,7 +103,7 @@ public class Register extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("RegisterResponse", "Register Response: " + response.toString());
+                        Log.d("RegisterResponse", response.toString());
                         try{
                             JSONObject jsonObject = new JSONObject(response);
                             String success = jsonObject.getString("success");
