@@ -13,11 +13,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.smartcity.Common.Common;
-import com.example.smartcity.Model.WeatherResult;
+import com.example.smartcity.Common.WeatherCommon;
+import com.example.smartcity.Model.WeatherModel.WeatherResult;
 import com.example.smartcity.R;
-import com.example.smartcity.Retrofit.IOpenWeatherMap;
-import com.example.smartcity.Retrofit.RetrofitClient;
+import com.example.smartcity.Api.IOpenWeatherMap;
+import com.example.smartcity.Api.WeatherRetrofitClient;
 import com.squareup.picasso.Picasso;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -49,7 +49,7 @@ public class TodayWeatherFragment extends Fragment {
 
     public TodayWeatherFragment() {
         compositeDisposable = new CompositeDisposable();
-        Retrofit retrofit = RetrofitClient.getInstance();
+        Retrofit retrofit = WeatherRetrofitClient.getInstance();
         mService = retrofit.create(IOpenWeatherMap.class);
     }
 
@@ -83,12 +83,12 @@ public class TodayWeatherFragment extends Fragment {
 
     private void getWeatherInfo() {
 
-        System.out.println(String.valueOf(Common.current_location.getLatitude()));
+        System.out.println(String.valueOf(WeatherCommon.current_location.getLatitude()));
 
         compositeDisposable.add(mService.getWeatherByLatLng(
-                String.valueOf(Common.current_location.getLatitude()),
-                String.valueOf(Common.current_location.getLongitude()),
-                Common.APP_ID,
+                String.valueOf(WeatherCommon.current_location.getLatitude()),
+                String.valueOf(WeatherCommon.current_location.getLongitude()),
+                WeatherCommon.APP_ID,
                 "metric")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -96,9 +96,9 @@ public class TodayWeatherFragment extends Fragment {
                     @Override
                     public void accept(WeatherResult weatherResult) throws Exception {
 
-                        Log.d("@coord",String.valueOf(Common.current_location.getLatitude())
-                                +"/" + String.valueOf(Common.current_location.getLongitude())
-                                +"/" + Common.APP_ID);
+                        Log.d("@coord",String.valueOf(WeatherCommon.current_location.getLatitude())
+                                +"/" + String.valueOf(WeatherCommon.current_location.getLongitude())
+                                +"/" + WeatherCommon.APP_ID);
 
                         //Load image
                         // https://openweathermap.org/img/w/04n.png
@@ -113,13 +113,13 @@ public class TodayWeatherFragment extends Fragment {
                         txt_description.setText(new StringBuilder("Weather in ").append(weatherResult.getName()).toString());
                         txt_temperature.setText(new StringBuilder(
                                 String.valueOf(weatherResult.getMain().getTemp())).append("°C").toString());
-                        txt_date_time.setText(Common.convertUnixToDate(weatherResult.getDt()));
+                        txt_date_time.setText(WeatherCommon.convertUnixToDate(weatherResult.getDt()));
                         txt_pressure.setText(new StringBuilder(
                                 String.valueOf(weatherResult.getMain().getPressure())).append(" hpa").toString());
                         txt_humidity.setText(new StringBuilder(
                                 String.valueOf(weatherResult.getMain().getHumidity())).append(" %").toString());
-                        txt_sunrise.setText(Common.convertUnixToHour(weatherResult.getSys().getSunrise()));
-                        txt_sunset.setText(Common.convertUnixToHour(weatherResult.getSys().getSunset()));
+                        txt_sunrise.setText(WeatherCommon.convertUnixToHour(weatherResult.getSys().getSunrise()));
+                        txt_sunset.setText(WeatherCommon.convertUnixToHour(weatherResult.getSys().getSunset()));
                         txt_geo_coord.setText(new StringBuilder(weatherResult.getCoord().toString()).toString());
 
                         //Display panel

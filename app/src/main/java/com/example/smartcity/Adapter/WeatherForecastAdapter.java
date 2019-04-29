@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.smartcity.Common.Common;
-import com.example.smartcity.Model.WeatherForecastResult;
+import com.example.smartcity.Common.WeatherCommon;
+import com.example.smartcity.Model.WeatherModel.WeatherForecastResult;
 import com.example.smartcity.R;
 import com.squareup.picasso.Picasso;
 
@@ -35,11 +35,13 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
 
         //Load icon
-        Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/")
+        Picasso.get()
+                .load(new StringBuilder("https://openweathermap.org/img/w/")
                 .append(weatherForecastResult.list.get(i).weather.get(0).getIcon())
-                .append(".png").toString()).into(myViewHolder.image_weather);
+                .append(".png").toString())
+                .into(myViewHolder.image_weather);
 
-        myViewHolder.txt_date_time.setText(new StringBuilder(Common.convertUnixToDate(weatherForecastResult.list.get(i).dt)));
+        myViewHolder.txt_date_time.setText(new StringBuilder(WeatherCommon.convertUnixToDate(weatherForecastResult.list.get(i).dt)));
 
         myViewHolder.txt_description.setText(new StringBuilder(weatherForecastResult.list.get(i).weather.get(0).getDescription()));
 

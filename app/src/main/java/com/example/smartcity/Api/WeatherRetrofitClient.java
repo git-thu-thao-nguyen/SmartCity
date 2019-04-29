@@ -1,12 +1,10 @@
-package com.example.smartcity.Retrofit;
-
-import android.util.Log;
+package com.example.smartcity.Api;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitClient {
+public class WeatherRetrofitClient {
 
     private static Retrofit instance;
 

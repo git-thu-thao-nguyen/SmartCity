@@ -5,7 +5,7 @@ import android.location.Location;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Common {
+public class WeatherCommon {
 
     public static final String APP_ID = "9cea38fe2f03a6c6bf5621ed52aad107";
     public static Location current_location = null;

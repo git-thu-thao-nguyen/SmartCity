@@ -12,13 +12,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.smartcity.Adapter.WeatherForecastAdapter;
-import com.example.smartcity.Common.Common;
-import com.example.smartcity.Model.WeatherForecastResult;
+import com.example.smartcity.Common.WeatherCommon;
+import com.example.smartcity.Model.WeatherModel.WeatherForecastResult;
 import com.example.smartcity.R;
-import com.example.smartcity.Retrofit.IOpenWeatherMap;
-import com.example.smartcity.Retrofit.RetrofitClient;
+import com.example.smartcity.Api.IOpenWeatherMap;
+import com.example.smartcity.Api.WeatherRetrofitClient;
 
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -47,7 +46,7 @@ public class ForecastFragment extends Fragment {
 
     public ForecastFragment() {
         compositeDisposable = new CompositeDisposable();
-        Retrofit retrofit = RetrofitClient.getInstance();
+        Retrofit retrofit = WeatherRetrofitClient.getInstance();
         mService = retrofit.create(IOpenWeatherMap.class);
     }
 
@@ -73,9 +72,9 @@ public class ForecastFragment extends Fragment {
     private void getForecastWeatherInformation() {
 
         compositeDisposable.add(mService.getForecastWeatherByLatLng(
-                String.valueOf(Common.current_location.getLatitude()),
-                String.valueOf(Common.current_location.getLongitude()),
-                Common.APP_ID,
+                String.valueOf(WeatherCommon.current_location.getLatitude()),
+                String.valueOf(WeatherCommon.current_location.getLongitude()),
+                WeatherCommon.APP_ID,
                 "metric")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

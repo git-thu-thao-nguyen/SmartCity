@@ -1,4 +1,7 @@
-package com.example.smartcity.Model;
+package com.example.smartcity.Model.WeatherModel;
+
+import com.example.smartcity.Model.WeatherModel.City;
+import com.example.smartcity.Model.WeatherModel.MyList;
 
 import java.util.List;
 

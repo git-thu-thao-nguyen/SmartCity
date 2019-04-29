@@ -12,11 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.TableLayout;
 
 
-import com.example.smartcity.Adapter.ViewPagerAdapter;
-import com.example.smartcity.Common.Common;
+import com.example.smartcity.Adapter.FragmentAdapter;
+import com.example.smartcity.Common.WeatherCommon;
 import com.example.smartcity.Fragment.ForecastFragment;
 import com.example.smartcity.Fragment.TodayWeatherFragment;
 import com.example.smartcity.R;
@@ -90,7 +89,7 @@ public class weather extends AppCompatActivity {
             public void onLocationResult(LocationResult locationResult) {
                 super.onLocationResult(locationResult);
 
-                Common.current_location = locationResult.getLastLocation();
+                WeatherCommon.current_location = locationResult.getLastLocation();
 
                 viewPager = (ViewPager)findViewById(R.id.view_pager);
                 setupViewPager(viewPager);
@@ -104,7 +103,7 @@ public class weather extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        FragmentAdapter adapter = new FragmentAdapter(getSupportFragmentManager());
         adapter.addFragment(TodayWeatherFragment.getInstance(),"Today");
         adapter.addFragment(ForecastFragment.getInstance(),"5 DAYS");
 

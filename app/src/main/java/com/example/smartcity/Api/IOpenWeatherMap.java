@@ -1,7 +1,7 @@
-package com.example.smartcity.Retrofit;
+package com.example.smartcity.Api;
 
-import com.example.smartcity.Model.WeatherForecastResult;
-import com.example.smartcity.Model.WeatherResult;
+import com.example.smartcity.Model.WeatherModel.WeatherForecastResult;
+import com.example.smartcity.Model.WeatherModel.WeatherResult;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
