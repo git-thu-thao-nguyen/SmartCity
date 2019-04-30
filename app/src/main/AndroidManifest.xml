@@ -16,19 +16,19 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Activity.NewsDetail"></activity>
         <activity android:name=".Activity.news">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.weather"></activity>
+        <activity android:name=".Activity.weather" />
         <activity android:name=".Activity.EditProfil" />
         <activity
             android:name=".Activity.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".Activity.Profil"></activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Activity.Profil" />
         <activity
             android:name=".Activity.Login"
             android:label="Accueil">
@@ -37,7 +37,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.Register"></activity>
+        <activity android:name=".Activity.Register" />
     </application>
 
 </manifest>

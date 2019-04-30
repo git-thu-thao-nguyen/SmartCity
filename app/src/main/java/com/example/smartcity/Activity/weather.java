@@ -1,6 +1,7 @@
 package com.example.smartcity.Activity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Looper;
 import android.support.design.widget.CoordinatorLayout;
@@ -19,6 +20,7 @@ import com.example.smartcity.Common.WeatherCommon;
 import com.example.smartcity.Fragment.ForecastFragment;
 import com.example.smartcity.Fragment.TodayWeatherFragment;
 import com.example.smartcity.R;
+import com.example.smartcity.SharedPrefManager;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -48,6 +50,12 @@ public class weather extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
+
+        if(!SharedPrefManager.getInstance(this).isLoggin()){
+            Intent i = new Intent(this, Login.class);
+            finish();
+            startActivity(i);
+        }
 
         coordinatorLayout = (CoordinatorLayout)findViewById(R.id.root_view);
         toolbar = (Toolbar)findViewById(R.id.toolbar);

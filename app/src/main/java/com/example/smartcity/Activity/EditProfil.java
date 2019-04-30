@@ -44,8 +44,8 @@ public class EditProfil extends AppCompatActivity {
 
         if(!SharedPrefManager.getInstance(this).isLoggin()){
             Intent i = new Intent(this, Login.class);
-            startActivity(i);
             finish();
+            startActivity(i);
         }
 
         editTextPseudo = findViewById(R.id.pseudo);
@@ -101,6 +101,7 @@ public class EditProfil extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EditProfil.this, MainActivity.class);
+                finish();
                 startActivity(intent);
             }
         });

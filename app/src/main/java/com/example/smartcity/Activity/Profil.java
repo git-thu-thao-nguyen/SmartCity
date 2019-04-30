@@ -25,8 +25,8 @@ public class Profil extends AppCompatActivity {
 
         if(!SharedPrefManager.getInstance(this).isLoggin()){
                 Intent i = new Intent(this, Login.class);
-                startActivity(i);
                 finish();
+                startActivity(i);
         }
 
         buttonEditProfil = findViewById(R.id.edit_profil);
@@ -49,8 +49,8 @@ public class Profil extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Profil.this, EditProfil.class);
-                startActivity(i);
                 finish();
+                startActivity(i);
             }
         });
 
@@ -60,8 +60,8 @@ public class Profil extends AppCompatActivity {
             public void onClick(View v) {
                 SharedPrefManager.getInstance(getApplicationContext()).logout();
                 Intent i = new Intent(Profil.this, Login.class);
-                startActivity(i);
                 finish();
+                startActivity(i);
             }
         });
 

@@ -109,7 +109,7 @@ public class Login extends AppCompatActivity {
                                     SharedPrefManager.getInstance(getApplicationContext()).set_DataUser(id,pseudo,firstname,lastname,email,age,city);
 
                                     Intent intent = new Intent(Login.this,MainActivity.class);
-                                    //intent.putExtra("pseudo",p);
+                                    finish();
                                     startActivity(intent);
 
                                     loading.setVisibility(View.GONE);

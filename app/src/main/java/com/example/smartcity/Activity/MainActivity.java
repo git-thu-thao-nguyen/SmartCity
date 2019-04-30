@@ -24,6 +24,13 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(!SharedPrefManager.getInstance(this).isLoggin()){
+            Intent i = new Intent(this, Login.class);
+            finish();
+            startActivity(i);
+        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -107,8 +114,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_logout) {
             SharedPrefManager.getInstance(getApplicationContext()).logout();
             Intent i = new Intent(getBaseContext(), Login.class);
-            startActivity(i);
             finish();
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

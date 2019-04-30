@@ -6,8 +6,6 @@
         <item name="colorPrimary">@color/colorPrimary2</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark2</item>
         <item name="colorAccent">@color/colorText</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppThemeLogin.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -31,7 +29,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
