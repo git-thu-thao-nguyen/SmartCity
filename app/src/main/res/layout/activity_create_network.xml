@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/back"
+    tools:context=".Activity.CreateNetwork">
+
+    <EditText
+        android:id="@+id/name_network"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="190dp"
+        android:background="@drawable/shapeemail"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/type_network"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/name_network"
+        android:layout_below="@+id/name_network"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Type"
+        android:background="@drawable/shapeemail"
+        android:textSize="18sp"
+        android:inputType="textPersonName"
+        android:layout_alignLeft="@+id/name_network" />
+
+
+    <Switch
+        android:id="@+id/status"
+        android:layout_width="120dp"
+        android:layout_height="10dp"
+        android:onClick="onChecked"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/type_network"
+        android:layout_centerHorizontal="true"
+        android:text="Private" />
+
+
+    <Button
+        android:id="@+id/button_create"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shapelogin"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@+id/status"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Create"
+        android:textSize="16sp" />
+
+
+
+</RelativeLayout>

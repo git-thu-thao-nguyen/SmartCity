@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 
 import com.example.smartcity.Activity.Login;
 import com.example.smartcity.Activity.Profil;
+import com.google.android.gms.common.annotation.KeepName;
 
 /**
  *
@@ -28,6 +29,13 @@ public class SharedPrefManager {
     private static final String keyAge = "user_Age";
     private static final String keyCity = "user_City";
     private static final String keyMDP = "user_MDP";
+
+    private static final String keyNetworkId = "network_id";
+    private static final String keyNetworkAdmin = "network_admin";
+    private static final String keyNetworkName = "network_name";
+    private static final String keyNetworkType = "network_type";
+    private static final String keyKeywordNetwork = "network_keyword";
+    private static final String keyStatusNetwork = "network_network_status";
 
     private SharedPrefManager(Context context) {
 
@@ -113,5 +121,57 @@ public class SharedPrefManager {
         return sharedPreferences.getString(keyCity, null);
     }
 
+
+    /**
+     * RESEAU SOCIAL
+     */
+
+
+    public boolean set_network(int id, String admin, String name, String type, int status){
+
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt(keyNetworkId, id);
+        editor.putString(keyNetworkAdmin, admin);
+        editor.putString(keyNetworkName, name);
+        editor.putString(keyNetworkType, type);
+        editor.putInt(keyStatusNetwork,status);
+
+        editor.apply();
+
+        return true;
+    }
+
+
+    public int getNetworkId(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt(keyNetworkId, 0);
+    }
+
+    public String getNetworkAdmin(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(keyNetworkAdmin, null);
+    }
+
+    public String getNetworkName(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(keyNetworkName, null);
+    }
+
+    public String getNetworkType(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(keyNetworkType, null);
+    }
+
+    public String getKeywordNetwork(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(keyKeywordNetwork, null);
+    }
+
+    public int getStatusNetwork(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt(keyStatusNetwork, 0);
+    }
 
 }

@@ -99,10 +99,12 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_business) {
 
-        } else if (id == R.id.nav_social) {
-
-        } else if (id == R.id.nav_info) {
-
+        } else if (id == R.id.nav_search_social) {
+            Intent intent = new Intent(getBaseContext(), SearchNetwork.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_create_social) {
+            Intent intent = new Intent(getBaseContext(), CreateNetwork.class);
+            startActivity(intent);
         } else if (id == R.id.nav_profil) {
             Intent intent = new Intent(getBaseContext(), Profil.class);
             startActivity(intent);

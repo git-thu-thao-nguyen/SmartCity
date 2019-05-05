@@ -82,7 +82,7 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-                        Log.d("LoginResponse", "Login Response: " + response.toString());
+                        Log.d("LoginResponse", response.toString());
 
                         try {
                             JSONObject jsonObject = new JSONObject(response);

@@ -17,13 +17,13 @@
             android:icon="@drawable/ic_business"
             android:title="Business" />
         <item
-            android:id="@+id/nav_social"
+            android:id="@+id/nav_search_social"
             android:icon="@drawable/ic_network"
-            android:title="Social Network" />
+            android:title="Search Social Network" />
         <item
-            android:id="@+id/nav_info"
+            android:id="@+id/nav_create_social"
             android:icon="@drawable/ic_info"
-            android:title="Info" />
+            android:title="Create Social Network" />
     </group>
 
     <item android:title="Profil">
