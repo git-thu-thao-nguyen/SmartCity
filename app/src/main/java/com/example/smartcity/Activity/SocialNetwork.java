@@ -59,15 +59,15 @@ public class SocialNetwork extends AppCompatActivity {
         boutonFollow = findViewById(R.id.BoutonFollow);
         boutonMessage = findViewById(R.id.BoutonMessage);
 
-        /*
+
         boutonMessage.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
                 startActivity(new Intent(SocialNetwork.this, AddMessage.class));
+                finish();
             }
-        });*/
+        });
 
         setButtonFollow();
 

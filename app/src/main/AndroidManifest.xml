@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activity.SearchNetwork"></activity>
+        <activity android:name=".Activity.AddMessage"></activity>
+        <activity android:name=".Activity.SearchNetwork" />
         <activity android:name=".Activity.CreateNetwork" />
         <activity
             android:name=".Activity.Login"
