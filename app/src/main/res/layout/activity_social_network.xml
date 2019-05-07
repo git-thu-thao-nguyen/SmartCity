@@ -175,99 +175,29 @@
 
         </LinearLayout>
 
-        <RelativeLayout
+        <Button
+            android:id="@+id/Bouton_list_mess"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/linearLayoutBoutton">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayoutBoutton"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="60dp"
+            android:text="List message"
+            android:background="@drawable/shapelogin"
+            android:textColor="@color/colorPrimary" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
+        <Button
+            android:id="@+id/Bouton_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Bouton_list_mess"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="60dp"
+            android:text="Back"
+            android:background="@drawable/shapelogin"
+            android:textColor="@color/colorPrimary" />
 
-
-                <!--
-                <LinearLayout
-                    android:id="@+id/linearLayout3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/TitreVille"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="Ville :"
-                        android:textColor="@color/headings"
-                        android:textSize="13sp"
-                        />
-
-                    <TextView
-                        android:id="@+id/TextViewVille"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="Montpellier"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
-                        />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@color/grey">
-
-                    </View>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/TitreCategorie"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="Categorie :"
-                        android:textColor="@color/headings"
-                        android:textSize="13sp"
-                        />
-
-                    <TextView
-                        android:id="@+id/TextViewMotCle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text="Aventure"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
-                        />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@color/grey">
-
-                    </View>
-
-
-                </LinearLayout>
-                -->
-            </LinearLayout>
-        </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

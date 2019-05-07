@@ -37,6 +37,8 @@ public class SharedPrefManager {
     private static final String keyKeywordNetwork = "network_keyword";
     private static final String keyStatusNetwork = "network_network_status";
 
+    private static final String keyIsFollowed = "isfollowed";
+
     private SharedPrefManager(Context context) {
 
         mCtx = context;
@@ -172,6 +174,23 @@ public class SharedPrefManager {
     public int getStatusNetwork(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
         return sharedPreferences.getInt(keyStatusNetwork, 0);
+    }
+
+
+    public boolean set_isFollowed (String isFollowed) {
+
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName,Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(keyIsFollowed,isFollowed);
+        editor.apply();
+
+        return true;
+    }
+
+    public String getIsFollowed(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(keyIsFollowed, null);
     }
 
 }

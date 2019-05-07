@@ -54,10 +54,6 @@ public class SearchNetwork extends AppCompatActivity {
                 if(!editTextName.getText().toString().isEmpty()){
                     searchNetwork();
                 }
-                /*else{
-                    SharedPrefManager.getInstance(getApplicationContext()).rechercheReseauMotCle(motCleRecherche);
-                    startActivity(new Intent(getApplicationContext(), RechercheReseauMotCle.class));
-                }*/
             }
         });
 
