@@ -16,16 +16,19 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activity.ListMessage"></activity>
+        <activity android:name=".Activity.ListShopByCate">
+        </activity>
+        <activity android:name=".Activity.SearchCategorie">
+        </activity>
+        <activity android:name=".Activity.ListMessage" />
         <activity android:name=".Activity.AddMessage" />
         <activity android:name=".Activity.SearchNetwork" />
         <activity android:name=".Activity.CreateNetwork" />
         <activity
             android:name=".Activity.Login"
-            android:label="Accueil">
+            android:label="Smart City">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

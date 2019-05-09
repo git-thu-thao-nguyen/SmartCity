@@ -39,6 +39,8 @@ public class SharedPrefManager {
 
     private static final String keyIsFollowed = "isfollowed";
 
+    private static final String keyCategory = "category";
+
     private SharedPrefManager(Context context) {
 
         mCtx = context;
@@ -191,6 +193,26 @@ public class SharedPrefManager {
     public String getIsFollowed(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
         return sharedPreferences.getString(keyIsFollowed, null);
+    }
+
+
+    /**
+     * COMMERCE
+     */
+    public boolean set_category (String category) {
+
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName,Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(keyCategory,category);
+        editor.apply();
+
+        return true;
+    }
+
+    public String getCategory(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(keyCategory, null);
     }
 
 }

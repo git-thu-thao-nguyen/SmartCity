@@ -98,7 +98,8 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(getBaseContext(), weather.class);
             startActivity(intent);
         } else if (id == R.id.nav_business) {
-
+            Intent intent = new Intent(getBaseContext(), SearchCategorie.class);
+            startActivity(intent);
         } else if (id == R.id.nav_search_social) {
             Intent intent = new Intent(getBaseContext(), SearchNetwork.class);
             startActivity(intent);

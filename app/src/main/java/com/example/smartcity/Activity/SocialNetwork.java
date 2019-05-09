@@ -94,7 +94,7 @@ public class SocialNetwork extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SocialNetwork.this, Main.class));
+                startActivity(new Intent(SocialNetwork.this, MainActivity.class));
                 finish();
             }
         });

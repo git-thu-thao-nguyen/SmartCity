@@ -5,45 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/back"
-    tools:context=".Activity.SearchNetwork">
+    tools:context=".Activity.SearchCategorie">
 
 
     <TextView
-        android:id="@+id/TitleSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:text="Choose a category"
         android:layout_marginTop="100dp"
-        android:text="Search a social network here"
-        android:textSize="21dp"
-        android:textColor="@color/colorPrimary2"/>
+        android:textColor="@color/colorPrimary2"
+        android:textSize="21dp" />
 
-    <EditText
-        android:id="@+id/NameSearch"
+
+
+    <Spinner
+        android:id="@+id/category"
         android:layout_width="250dp"
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="290dp"
-        android:background="@drawable/shapeemail"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        android:textSize="18sp" />
+        android:layout_marginTop="250dp" />
 
 
 
     <Button
-        android:id="@+id/ButtonSearch"
+        android:id="@+id/ButtonSearchCate"
         android:layout_width="260dp"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="186dp"
+        android:layout_marginBottom="200dp"
         android:background="@drawable/shapelogin"
         android:textColor="@color/colorPrimary"
-        android:text="Search"
+        android:text="OK"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/Back"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/shapesignup"
+        android:textColor="@color/colorPrimary"
+        android:text="Back"
         android:textSize="16sp" />
 
 
