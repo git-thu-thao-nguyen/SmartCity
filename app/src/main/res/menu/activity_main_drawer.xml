@@ -13,9 +13,13 @@
             android:icon="@drawable/ic_cloud"
             android:title="Weather" />
         <item
-            android:id="@+id/nav_business"
+            android:id="@+id/nav_shop"
             android:icon="@drawable/ic_business"
-            android:title="Business" />
+            android:title="Shop" />
+        <item
+            android:id="@+id/nav_offre"
+            android:icon="@drawable/ic_local_grocery_store"
+            android:title="Offre" />
         <item
             android:id="@+id/nav_search_social"
             android:icon="@drawable/ic_network"

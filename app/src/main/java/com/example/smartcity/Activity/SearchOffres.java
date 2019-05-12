@@ -16,20 +16,20 @@ import com.example.smartcity.SharedPrefManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchCategorie extends AppCompatActivity {
+public class SearchOffres extends AppCompatActivity {
 
-    private Spinner spinnerCategory;
-    private String nameCategory = "debut";
+    private Spinner spinnerHobby;
+    private String hobby = "debut";
     private Button buttonSearch, buttonBack;
     private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_categorie);
+        setContentView(R.layout.activity_search_offres);
 
-        spinnerCategory = findViewById(R.id.category);
-        buttonSearch = findViewById(R.id.ButtonSearchCate);
+        spinnerHobby = findViewById(R.id.hobby);
+        buttonSearch = findViewById(R.id.ButtonSearchHobby);
         buttonBack = findViewById(R.id.Back);
 
         List listCategory = new ArrayList();
@@ -45,16 +45,16 @@ public class SearchCategorie extends AppCompatActivity {
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listCategory);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCategory.setAdapter(adapter);
-        spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerHobby.setAdapter(adapter);
+        spinnerHobby.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                nameCategory = adapterView.getItemAtPosition(i).toString();
+                hobby = adapterView.getItemAtPosition(i).toString();
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                nameCategory = null;
+                hobby = null;
             }
         });
 
@@ -62,8 +62,8 @@ public class SearchCategorie extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                SharedPrefManager.getInstance(getApplicationContext()).set_category(nameCategory);
-                startActivity(new Intent(getApplicationContext(), ListShopByCate.class));
+                SharedPrefManager.getInstance(getApplicationContext()).set_hobby(hobby);
+                startActivity(new Intent(getApplicationContext(), ListOffres.class));
             }
         });
 
@@ -71,12 +71,11 @@ public class SearchCategorie extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SearchCategorie.this, MainActivity.class));
+                startActivity(new Intent(SearchOffres.this, MainActivity.class));
                 finish();
             }
         });
 
         progressDialog = new ProgressDialog(this);
     }
-
 }

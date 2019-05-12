@@ -40,6 +40,7 @@ public class SharedPrefManager {
     private static final String keyIsFollowed = "isfollowed";
 
     private static final String keyCategory = "category";
+    private static final String keyHobby = "hobby";
 
     private SharedPrefManager(Context context) {
 
@@ -213,6 +214,22 @@ public class SharedPrefManager {
     public String getCategory(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
         return sharedPreferences.getString(keyCategory, null);
+    }
+
+    public boolean set_hobby (String category) {
+
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName,Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(keyHobby,category);
+        editor.apply();
+
+        return true;
+    }
+
+    public String getHobby(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(dataName, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(keyHobby, null);
     }
 
 }

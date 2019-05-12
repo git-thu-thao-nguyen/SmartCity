@@ -17,6 +17,7 @@ public class Urls {
     public static final String URL_GET_MESSAGE = UrlPrincipale + "get_message.php";
 
     public static final String URL_GET_CATEGORY = UrlPrincipale + "get_category.php";
+    public static final String URL_GET_OFFRE = UrlPrincipale + "get_offres.php";
 
 
 }

@@ -97,8 +97,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_weather) {
             Intent intent = new Intent(getBaseContext(), weather.class);
             startActivity(intent);
-        } else if (id == R.id.nav_business) {
+        } else if (id == R.id.nav_shop) {
             Intent intent = new Intent(getBaseContext(), SearchCategorie.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_offre) {
+            Intent intent = new Intent(getBaseContext(), SearchOffres.class);
             startActivity(intent);
         } else if (id == R.id.nav_search_social) {
             Intent intent = new Intent(getBaseContext(), SearchNetwork.class);
