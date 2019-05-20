@@ -33,13 +33,13 @@ public class SearchOffres extends AppCompatActivity {
         buttonBack = findViewById(R.id.Back);
 
         List listCategory = new ArrayList();
-        listCategory.add("Car");
-        listCategory.add("Cinema");
-        listCategory.add("Informatique");
-        listCategory.add("Game");
+        listCategory.add("Diet");
+        listCategory.add("Healthy");
+        listCategory.add("Make up");
+        listCategory.add("Discover");
         listCategory.add("Book");
-        listCategory.add("Fashion");
-        listCategory.add("Technology");
+        listCategory.add("Game");
+        listCategory.add("High-tech");
         listCategory.add("Shopping");
         listCategory.add("Sport");
 

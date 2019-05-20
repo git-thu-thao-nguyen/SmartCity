@@ -58,6 +58,19 @@
         android:text="Create"
         android:textSize="16sp" />
 
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shapesignup"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@+id/button_create"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Back"
+        android:textSize="16sp" />
+
+
 
 
 </RelativeLayout>

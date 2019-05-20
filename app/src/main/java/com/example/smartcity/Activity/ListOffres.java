@@ -9,7 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +41,7 @@ public class ListOffres extends AppCompatActivity {
     List<String> listNameShop = new ArrayList<>();
     List<String> listOffres = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +63,6 @@ public class ListOffres extends AppCompatActivity {
                             JSONArray jsonArray1 = jsonObject.getJSONArray("listNameShop");
                             JSONArray jsonArray2 = jsonObject.getJSONArray("listOffres");
 
-
                             for(int i=0; i< jsonArray1.length(); i++) {
                                 String s = (String) jsonArray1.get(i);
                                 listNameShop.add(s);
@@ -77,8 +79,6 @@ public class ListOffres extends AppCompatActivity {
                             }else {
                                 Toast.makeText(ListOffres.this,"Not found the offres ",Toast.LENGTH_SHORT).show();
                             }
-
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();

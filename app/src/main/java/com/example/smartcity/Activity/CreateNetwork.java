@@ -1,6 +1,7 @@
 package com.example.smartcity.Activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,7 +38,7 @@ public class CreateNetwork extends AppCompatActivity {
     private EditText editTextNam, editTextType;
     private Switch switchStatus;
     private int networkStatus ;
-    private Button boutonCreate;
+    private Button boutonCreate, buttonBack;
     private ProgressDialog progressDialog;
 
     @Override
@@ -49,13 +50,22 @@ public class CreateNetwork extends AppCompatActivity {
         editTextType = findViewById(R.id.type_network);
         switchStatus = findViewById(R.id.status);
         boutonCreate = findViewById(R.id.button_create);
+        buttonBack = findViewById(R.id.button_back);
         progressDialog = new ProgressDialog(this);
-
 
         boutonCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 createNetwork();
+            }
+        });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CreateNetwork.this, MainActivity.class));
+                finish();
             }
         });
     }
