@@ -16,15 +16,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activity.ListOffres"></activity>
-        <activity android:name=".Activity.SearchOffres"/>
+        <activity android:name=".Activity.itemAdvertisement"></activity>
+        <activity android:name=".Activity.Advertisement" />
+        <activity android:name=".Activity.ListOffres" />
+        <activity android:name=".Activity.SearchOffres" />
         <activity android:name=".Activity.ListShopByCate" />
-        <activity android:name=".Activity.SearchCategorie" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Activity.SearchCategorie" />
         <activity android:name=".Activity.ListMessage" />
         <activity android:name=".Activity.AddMessage" />
         <activity android:name=".Activity.SearchNetwork" />
@@ -32,7 +29,10 @@
         <activity
             android:name=".Activity.Login"
             android:label="Smart City">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Activity.SocialNetwork" />
         <activity android:name=".Activity.NewsDetail" />

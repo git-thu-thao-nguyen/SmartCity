@@ -28,6 +28,10 @@
             android:id="@+id/nav_create_social"
             android:icon="@drawable/ic_info"
             android:title="Create Social Network" />
+        <item
+            android:id="@+id/nav_pub"
+            android:icon="@drawable/ic_dialpad"
+            android:title="Advertisement" />
     </group>
 
     <item android:title="Profil">
