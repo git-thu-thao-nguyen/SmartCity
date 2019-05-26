@@ -39,10 +39,7 @@
         <activity android:name=".Activity.news" />
         <activity android:name=".Activity.weather" />
         <activity android:name=".Activity.EditProfil" />
-        <activity
-            android:name=".Activity.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activity.MainActivity"/>
         <activity android:name=".Activity.Profil" />
         <activity android:name=".Activity.Register" />
     </application>
