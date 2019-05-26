@@ -34,7 +34,7 @@ import java.util.Map;
 public class SearchNetwork extends AppCompatActivity {
 
     private EditText editTextName;
-    private Button boutonSearch;
+    private Button boutonSearch, boutonBack;
 
     private ProgressDialog progressDialog;
 
@@ -45,6 +45,7 @@ public class SearchNetwork extends AppCompatActivity {
 
         editTextName = findViewById(R.id.NameSearch);
         boutonSearch = findViewById(R.id.ButtonSearch);
+        boutonBack = findViewById(R.id.Back);
 
 
         boutonSearch.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +55,15 @@ public class SearchNetwork extends AppCompatActivity {
                 if(!editTextName.getText().toString().isEmpty()){
                     searchNetwork();
                 }
+            }
+        });
+
+        boutonBack.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SearchNetwork.this, MainActivity.class));
+                finish();
             }
         });
 

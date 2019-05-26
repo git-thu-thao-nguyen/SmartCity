@@ -86,8 +86,7 @@ public class ListMessage extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(ListMessage.this,"Error 1!" + error.toString(),Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(ListMessage.this,"Error 2!" + error.toString(),Toast.LENGTH_SHORT).show();
                     }
                 })
         {

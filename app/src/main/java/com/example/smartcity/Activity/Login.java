@@ -114,13 +114,18 @@ public class Login extends AppCompatActivity {
 
                                     loading.setVisibility(View.GONE);
                                 }
+                            }else {
+                                loading.setVisibility(View.GONE);
+                                buttonLogin.setVisibility(View.VISIBLE);
+                                Toast.makeText(Login.this,"Pseudo or Password is not correct",Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
 
                             e.printStackTrace();
                             loading.setVisibility(View.GONE);
                             buttonLogin.setVisibility(View.VISIBLE);
-                            Toast.makeText(Login.this,"Error Login 1!" + e.toString(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this,"Pseudo or Password is not correct",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(Login.this,"Error Login 1!" + e.toString(),Toast.LENGTH_SHORT).show();
                         }
                     }
                 },

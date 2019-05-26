@@ -94,7 +94,7 @@ public class SocialNetwork extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SocialNetwork.this, MainActivity.class));
+                startActivity(new Intent(SocialNetwork.this, SearchNetwork.class));
                 finish();
             }
         });
@@ -132,6 +132,7 @@ public class SocialNetwork extends AppCompatActivity {
                                         Unfollow();
                                     }
                                 });
+
                             } else {
                                 Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show();
                                 boutonFollow.setText("Follow");

@@ -13,7 +13,7 @@
     <ImageView
         android:layout_width="341dp"
         android:layout_height="170dp"
-        android:src="@mipmap/login" />
+        android:src="@mipmap/logo" />
 
     <EditText
         android:id="@+id/login_pseudo"
